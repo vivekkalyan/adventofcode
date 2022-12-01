@@ -12,6 +12,12 @@ fn main() {
         .collect();
     calories.sort();
     calories.reverse();
-    println!("The elf carrying the most number of calories has is carrying {:?} calories", calories[0]);
-    println!("The elves carrying the 3 most number of calories has is carrying a total of {:?} calories", calories[0] + calories[1] + calories[2]);
+    println!(
+        "The elf carrying the most number of calories has is carrying {:?} calories",
+        calories[0]
+    );
+    println!(
+        "The elves carrying the 3 most number of calories has is carrying a total of {:?} calories",
+        calories[0] + calories[1] + calories[2]
+    );
 }
