@@ -1,11 +1,11 @@
-use std::fs;
 use std::collections::HashSet;
+use std::fs;
 
 fn main() {
     let contents = fs::read_to_string("input").expect("Should be able to read file");
     let mut sum = 0;
     for line in contents.lines() {
-        let (first, second) = line.split_at(line.len()/2);
+        let (first, second) = line.split_at(line.len() / 2);
         println!("{} {}", first, second);
         let common_char = first.chars().find(|c| second.contains(*c)).expect("");
         println!("{}", common_char);

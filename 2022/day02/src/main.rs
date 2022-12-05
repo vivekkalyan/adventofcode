@@ -1,4 +1,4 @@
-use std::fs; 
+use std::fs;
 
 fn main() {
     let contents = fs::read_to_string("input").expect("Should be able to read file");
@@ -16,7 +16,7 @@ fn main() {
                     "C" => total_score += 6,
                     &_ => total_score += 0,
                 }
-            },
+            }
             "Y" => {
                 total_score += 2;
                 match result[0] {
@@ -25,7 +25,7 @@ fn main() {
                     "C" => total_score += 0,
                     &_ => total_score += 0,
                 }
-            },
+            }
             "Z" => {
                 total_score += 3;
                 match result[0] {
@@ -34,11 +34,14 @@ fn main() {
                     "C" => total_score += 3,
                     &_ => total_score += 0,
                 }
-            },
+            }
             &_ => total_score += 0,
         }
     }
-    println!("Total score assuming second column is what you should play: {:?}", total_score);
+    println!(
+        "Total score assuming second column is what you should play: {:?}",
+        total_score
+    );
 
     let mut total_score2 = 0;
     for line in contents.lines() {
@@ -54,7 +57,7 @@ fn main() {
                     "C" => total_score2 += 2,
                     &_ => total_score2 += 0,
                 }
-            },
+            }
             "Y" => {
                 total_score2 += 3;
                 match result[0] {
@@ -63,7 +66,7 @@ fn main() {
                     "C" => total_score2 += 3,
                     &_ => total_score2 += 0,
                 }
-            },
+            }
             "Z" => {
                 total_score2 += 6;
                 match result[0] {
@@ -72,9 +75,12 @@ fn main() {
                     "C" => total_score2 += 1,
                     &_ => total_score2 += 0,
                 }
-            },
+            }
             &_ => total_score2 += 0,
         }
     }
-    println!("Total score if the second column is outcome to achieve: {:?}", total_score2);
+    println!(
+        "Total score if the second column is outcome to achieve: {:?}",
+        total_score2
+    );
 }

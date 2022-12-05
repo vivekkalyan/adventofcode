@@ -12,9 +12,9 @@ fn main() {
         println!("{}", line);
         'stack: for stack in 0..num_stacks {
             if !parsing_stacks {
-                continue
+                continue;
             }
-            let stack_char = line.chars().nth(stack*4 + 1).unwrap();
+            let stack_char = line.chars().nth(stack * 4 + 1).unwrap();
             if stack_char == ' ' {
                 continue;
             }
@@ -29,17 +29,18 @@ fn main() {
         }
         let line_split = line.split(' ').collect::<Vec<_>>();
         if parsing_stacks || line_split.len() != 6 {
-            continue
+            continue;
         }
         let mut tmp_stack = Vec::new();
         let num_move: usize = line_split[1].parse().unwrap();
         let from_stack_idx: i32 = line_split[3].parse::<i32>().unwrap() - 1;
         let to_stack_idx: i32 = line_split[5].parse::<i32>().unwrap() - 1;
         let from_stack_len = stacks[from_stack_idx as usize].len();
-        tmp_stack.extend(stacks[from_stack_idx as usize].drain(from_stack_len-num_move..from_stack_len));
+        tmp_stack.extend(
+            stacks[from_stack_idx as usize].drain(from_stack_len - num_move..from_stack_len),
+        );
         // tmp_stack.reverse();
         stacks[to_stack_idx as usize].extend(tmp_stack);
-
     }
 
     let solution: String = stacks.iter().filter_map(|s| s.last()).collect();

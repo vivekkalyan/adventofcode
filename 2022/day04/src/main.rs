@@ -4,7 +4,10 @@ fn main() {
     let mut num_contain = 0;
     let mut num_overlap = 0;
     for line in contents.lines() {
-        let splits: Vec<u8> = line.splitn(4, [',','-']).map(|s| s.parse().unwrap()).collect();
+        let splits: Vec<u8> = line
+            .splitn(4, [',', '-'])
+            .map(|s| s.parse().unwrap())
+            .collect();
         let start1 = splits[0];
         let end1 = splits[1];
         let start2 = splits[2];
